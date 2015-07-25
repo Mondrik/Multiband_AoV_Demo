@@ -28,8 +28,8 @@ def simulate_lc(n,white=False):
 # single band inputs.
 # See paper for more details on variables.
 def makeMBpgram(pgrams,lcs,nobs,nh2):
-	d1 = float(nh2 * 2.)
-	d2 = float(nobs-2*nh2-1)
+	d1 = float(nh2)
+	d2 = float(nobs-nh2-1)
 	bands = ['u','g','r','i','z']
 	c2 = np.zeros_like(pgrams[0])
 	vrf_tot = 0.
