@@ -52,6 +52,7 @@ def makeMBpgram(pgrams,lcs,nobs,nh2):
 	MBpg = d2*c2/(d1*(vrf_tot-c2))
 	return MBpg
 
+# Fix seed for demonstrative purposes
 np.random.seed(5)
 bands = ['u','g','r','i','z']
 nh2 = 2
