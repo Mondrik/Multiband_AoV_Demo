@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 
 # returns list of times, magnitudes, and errors for a simulated light curve
 # signal can be altered
+# n is th number of observations in the light curve
 def simulate_lc(n,white=False):
     t = np.cumsum(np.random.exponential(1,n))
     er = np.random.exponential(scale=1.3, size=n).astype('f')
@@ -22,11 +23,11 @@ def simulate_lc(n,white=False):
     return [t,f,er]
  
 # Given a list of periodograms, light curves (which consist of a time, magnitude,
-# and error), the number of observations (taken to be constant across all bands), and the
+# and error), the number of observations (taken to be constant across all bands), and 2x the
 # number of harmonics (nh2), construct multiband AoV lightcurves.
 # The frequencies the multiband periodogram is evaluated at are the same as those in its
 # single band inputs.
-# See paper for more details on variables.
+# Variable names in general are similar to those from SC1996 
 def makeMBpgram(pgrams,lcs,nobs,nh2):
 	d1 = float(nh2)
 	d2 = float(nobs-nh2-1)
@@ -77,7 +78,7 @@ nfr = np.ceil((fru-fr0)/frs+1)
 fs = fr0 + np.linspace(0,nfr-1,nfr)*frs
 
 
-## compute periodogram for each band using AoV of CS
+## compute periodogram for each band using multiharmonic AoV of CS
 pgrams = []
 for i in xrange(len(bands)):
 	lc = lcs[i]
