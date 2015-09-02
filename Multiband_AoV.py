@@ -92,6 +92,8 @@ for p in pgrams:
 	plt.axhline(0) ## periodogram should be > 0
 	plt.axvline(1./0.5,lw=2,ls='--',color='k') ## true period
 	plt.plot(fs,p,'-b')
+	plt.xlabel('Period')
+	plt.ylabel('Single band statistic')
 	plt.show()
 plt.show()
 
@@ -99,5 +101,7 @@ plt.axhline(0) ## periodogram should be > 0
 plt.axvline(1./0.5) ## true period
 MB = makeMBpgram(pgrams,lcs,n,nh2)
 plt.plot(fs,MB,'-k',lw=2)
+plt.xlabel('Period')
+plt.ylabel('Multiband statistic')
 plt.show()
 
